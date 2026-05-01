@@ -1,7 +1,7 @@
 import type { User } from 'firebase/auth';
 import { Home, Settings, Users, LogOut, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { logout } from '../../features/auth/services/authService';
+import { logout } from '../../features/auth/services/auth_service';
 import {
   Sidebar,
   SidebarContent,
@@ -15,6 +15,17 @@ import {
   SidebarGroupContent,
 } from '@/components/ui/sidebar';
 
+import {
+  WorkspaceLogo,
+  WorkspaceMeta,
+  AppTitle,
+  AppSubTitle,
+  UserAvatar,
+  UserInfo,
+  UserName,
+  UserEmail,
+} from './styles/app_sidebar_styles';
+
 type AppSidebarProps = {
   user: User;
 };
@@ -26,15 +37,13 @@ function getInitial(value?: string | null) {
 export function AppSidebar({ user }: AppSidebarProps) {
   return (
     <Sidebar collapsible="icon">
-      <SidebarHeader className="p-4 group-data-[collapsible=icon]:px-2">
-        <div className="flex items-center gap-3 group-data-[collapsible=icon]:justify-center">
-          <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded bg-cyan-700 font-bold text-cyan-50">
-            A
-          </div>
-          <div className="flex flex-col overflow-hidden group-data-[collapsible=icon]:hidden">
-            <span className="truncate text-sm font-semibold text-foreground">TwentyClone</span>
-            <span className="truncate text-xs text-muted-foreground">Không gian</span>
-          </div>
+      <SidebarHeader className="p-4 group-data-[collapsible=icon]:px-0">
+        <div className="flex w-full items-center gap-3 group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center">
+          <WorkspaceLogo>A</WorkspaceLogo>
+          <WorkspaceMeta>
+            <AppTitle>TwentyClone</AppTitle>
+            <AppSubTitle>Không gian</AppSubTitle>
+          </WorkspaceMeta>
         </div>
       </SidebarHeader>
 
@@ -83,33 +92,31 @@ export function AppSidebar({ user }: AppSidebarProps) {
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton
-              className="h-12 w-full justify-start group-data-[collapsible=icon]:justify-center"
+              className="h-12 w-full justify-start group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center"
               onClick={logout}
               tooltip="Đăng xuất"
             >
-              <div className="relative flex h-6 w-6 shrink-0 items-center justify-center">
+              <UserAvatar>
                 {user.photoURL && (
                   <img
-                    className="absolute inset-0 h-full w-full rounded-full object-cover group-data-[collapsible=icon]:hidden"
+                    className="absolute inset-0 h-full w-full object-cover"
                     src={user.photoURL}
                     alt=""
                   />
                 )}
                 <div
                   className={cn(
-                    'flex h-full w-full items-center justify-center rounded-full bg-cyan-700 text-xs font-bold text-cyan-50',
+                    'flex h-full w-full items-center justify-center',
                     user.photoURL && 'hidden group-data-[collapsible=icon]:flex',
                   )}
                 >
                   {getInitial(user.displayName || user.email)}
                 </div>
-              </div>
-              <div className="flex flex-col items-start overflow-hidden group-data-[collapsible=icon]:hidden">
-                <span className="w-full truncate text-left text-sm font-medium text-foreground">
-                  {user.displayName || 'Người dùng'}
-                </span>
-                <span className="w-full truncate text-left text-xs text-muted-foreground">{user.email}</span>
-              </div>
+              </UserAvatar>
+              <UserInfo>
+                <UserName>{user.displayName || 'Người dùng'}</UserName>
+                <UserEmail>{user.email}</UserEmail>
+              </UserInfo>
               <LogOut className="ml-auto shrink-0 group-data-[collapsible=icon]:hidden" size={14} />
             </SidebarMenuButton>
           </SidebarMenuItem>

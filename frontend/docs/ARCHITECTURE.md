@@ -12,7 +12,7 @@ Project dùng feature-based folders.
 - `src/components/ui`: Các component từ **shadcn/ui**.
 - `src/shared/styles`: Tailwind entry, theme và layout CSS.
 
-Xem chi tiết tại [UI_SYSTEM.md](./UI_SYSTEM.md).
+Xem chi tiết tại [UI_SYSTEM.md](./ui_system.md).
 
 ## Thêm feature mới
 

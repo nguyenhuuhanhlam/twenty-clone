@@ -1,11 +1,11 @@
 import { useMemo, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { SplitResizer } from '../../../shared/components/SplitResizer';
-import { Topbar } from '../../../shared/components/Topbar';
-import { useUsers } from '../hooks/useUsers';
+import { SplitResizer } from '../../../shared/components/split_resizer';
+import { Topbar } from '../../../shared/components/topbar';
+import { useUsers } from '../hooks/use_users';
 import type { UserRecord } from '../types';
-import { UserDetailPanel } from './UserDetailPanel';
-import { UsersTable } from './UsersTable';
+import { UserDetailPanel } from './user_detail_panel';
+import { UsersTable } from './users_table';
 
 const MIN_PANEL_WIDTH = 320;
 const MAX_PANEL_WIDTH = 620;

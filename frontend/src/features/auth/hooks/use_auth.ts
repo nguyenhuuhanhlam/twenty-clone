@@ -1,6 +1,6 @@
 import type { User } from 'firebase/auth';
 import { useEffect, useState } from 'react';
-import { observeAuthState } from '../services/authService';
+import { observeAuthState } from '../services/auth_service';
 
 type AuthState = {
   user: User | null;

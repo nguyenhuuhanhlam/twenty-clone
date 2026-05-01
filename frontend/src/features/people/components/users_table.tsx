@@ -1,6 +1,6 @@
-import { EmptyState } from '../../../shared/components/EmptyState';
-import { ErrorState } from '../../../shared/components/ErrorState';
-import { LoadingState } from '../../../shared/components/LoadingState';
+import { EmptyState } from '../../../shared/components/empty_state';
+import { ErrorState } from '../../../shared/components/error_state';
+import { LoadingState } from '../../../shared/components/loading_state';
 import type { UserRecord } from '../types';
 import { formatDate, getInitial, getUserColor } from '../utils';
 

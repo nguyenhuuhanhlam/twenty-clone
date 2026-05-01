@@ -1,6 +1,6 @@
 import type { User } from 'firebase/auth';
 import { ChevronLeft, ChevronRight, Home, Search, Settings, Users } from 'lucide-react';
-import { logout } from '../../features/auth/services/authService';
+import { logout } from '../../features/auth/services/auth_service';
 
 type SidebarProps = {
   isCollapsed: boolean;

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { subscribeUsers } from '../services/usersService';
+import { subscribeUsers } from '../services/users_service';
 import type { UserRecord } from '../types';
 
 type UsersState = {

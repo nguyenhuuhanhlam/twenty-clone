@@ -45,7 +45,7 @@
 
 .workspace-plan,
 .breadcrumb {
-  color: var(--muted);
+  color: var(--muted-strong);
 }
 
 .workspace-plan {
@@ -147,12 +147,6 @@ kbd {
   width: 30px;
 }
 
-.sidebar-footer {
-  display: grid;
-  gap: 6px;
-  margin-top: auto;
-}
-
 .user-login {
   min-height: 42px;
 }
@@ -179,70 +173,6 @@ kbd {
   width: 20px;
 }
 
-.user-meta {
-  display: grid;
-  min-width: 0;
-  text-align: left;
-}
-
-.user-name {
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 650;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.user-email {
-  color: var(--muted);
-  font-size: 12px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.sidebar-collapsed .sidebar {
-  align-items: center;
-  padding: 12px 8px;
-}
-
-.sidebar-collapsed .workspace-switcher {
-  display: flex;
-  justify-content: center;
-  padding: 0;
-}
-
-.sidebar-collapsed .workspace-mark,
-.sidebar-collapsed .workspace-copy,
-.sidebar-collapsed .search-button span,
-.sidebar-collapsed .search-button kbd,
-.sidebar-collapsed .footer-action span,
-.sidebar-collapsed .nav-label,
-.sidebar-collapsed .nav-item span {
-  display: none;
-}
-
-.sidebar-collapsed .nav-item,
-.sidebar-collapsed .footer-action,
-.sidebar-collapsed .user-login,
-.sidebar-collapsed .search-button {
-  height: 36px;
-  justify-content: center;
-  padding: 0;
-  width: 40px;
-}
-
-.sidebar-collapsed .sidebar-footer {
-  align-items: center;
-  justify-items: center;
-  width: 100%;
-}
-
-.sidebar-collapsed .user-meta {
-  display: none;
-}
-
 .content {
   display: grid;
   grid-template-rows: 58px minmax(0, 1fr);
@@ -262,12 +192,15 @@ kbd {
 
 .breadcrumb {
   font-size: 12px;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .topbar h1 {
   font-size: 14px;
   font-weight: 620;
-  margin-top: 2px;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .topbar-actions,
@@ -382,7 +315,7 @@ td {
 
 th {
   background: var(--surface);
-  color: var(--muted);
+  color: #737373;
   font-weight: 500;
   position: sticky;
   top: 0;
@@ -552,7 +485,7 @@ tbody tr.selected {
 }
 
 .field-group-title {
-  color: var(--muted);
+  color: #737373;
   font-size: 13px;
   margin: 4px 0 8px;
 }
@@ -572,7 +505,7 @@ tbody tr.selected {
 }
 
 dt {
-  color: var(--muted);
+  color: #737373;
   font-size: 12px;
 }
 

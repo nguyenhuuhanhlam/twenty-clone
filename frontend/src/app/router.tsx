@@ -1,4 +1,4 @@
-import { PeoplePage } from '../features/people/components/PeoplePage';
+import { PeoplePage } from '../features/people/components/people_page';
 
 export const routes = [
   {

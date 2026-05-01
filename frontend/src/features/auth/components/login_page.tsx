@@ -1,6 +1,6 @@
 import { LogIn } from 'lucide-react';
 import { useState } from 'react';
-import { signInWithGoogle } from '../services/authService';
+import { signInWithGoogle } from '../services/auth_service';
 
 export function LoginPage() {
   const [error, setError] = useState<string | null>(null);

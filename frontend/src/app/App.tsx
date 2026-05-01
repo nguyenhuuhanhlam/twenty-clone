@@ -1,9 +1,9 @@
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { LoginPage } from '../features/auth/components/LoginPage';
-import { useAuth } from '../features/auth/hooks/useAuth';
-import { PeoplePage } from '../features/people/components/PeoplePage';
-import { LoadingState } from '../shared/components/LoadingState';
-import { AppShell } from './AppShell';
+import { LoginPage } from '../features/auth/components/login_page';
+import { useAuth } from '../features/auth/hooks/use_auth';
+import { PeoplePage } from '../features/people/components/people_page';
+import { LoadingState } from '../shared/components/loading_state';
+import { AppShell } from './app_shell';
 
 export function App() {
   const { user, loading } = useAuth();

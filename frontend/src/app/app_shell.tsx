@@ -1,7 +1,7 @@
 import { SidebarProvider } from '@/components/ui/sidebar';
 import type { User } from 'firebase/auth';
 import type { ReactNode } from 'react';
-import { AppSidebar } from '../shared/components/AppSidebar';
+import { AppSidebar } from '../shared/components/app_sidebar';
 
 type AppShellProps = {
   children: ReactNode;

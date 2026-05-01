@@ -14,8 +14,8 @@ App React + Vite + Firebase để hiển thị collection `users` dưới dạng
 
 ## Đọc file nào trước
 
-- Kiến trúc: `docs/ARCHITECTURE.md`
-- Schema Firebase: `docs/FIREBASE_SCHEMA.md`
+- Kiến trúc: `docs/architecture.md`
+- Schema Firebase: `docs/firebase_schema.md`
 - People feature: `src/features/people`
 - Shared UI: `src/shared`
 

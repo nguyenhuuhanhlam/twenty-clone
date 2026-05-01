@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/geist";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  :root {
+    --bg: #121212;
+    --surface: #171717;
+    --surface-raised: #1d1d1d;
+    --surface-soft: #242424;
+    --border: #2c2c2c;
+    --border-soft: #242424;
+    --text: #e8e8e8;
+    --muted: #8f8f8f;
+    --muted-strong: #b5b5b5;
+    --accent: #4f7cff;
+    --danger: #ef7070;
+    --detail-width: 390px;
+    --sidebar-width: 220px;
+    
+    color-scheme: dark;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    /* Shadcn defaults mapped to our theme */
+    --background: var(--bg);
+    --foreground: var(--text);
+    --card: var(--surface);
+    --card-foreground: var(--text);
+    --popover: var(--surface-raised);
+    --popover-foreground: var(--text);
+    --primary: var(--accent);
+    --primary-foreground: #ffffff;
+    --secondary: var(--surface-soft);
+    --secondary-foreground: var(--text);
+    --muted: var(--surface-soft);
+    --muted-foreground: #8f8f8f;
+    --accent: var(--surface-soft);
+    --accent-foreground: var(--text);
+    --destructive: var(--danger);
+    --destructive-foreground: #ffffff;
+    --radius: 0.5rem;
+
+    /* Sidebar specifics */
+    --sidebar: var(--bg);
+    --sidebar-foreground: var(--text);
+    --sidebar-primary: var(--accent);
+    --sidebar-primary-foreground: #ffffff;
+    --sidebar-accent: var(--surface-soft);
+    --sidebar-accent-foreground: var(--text);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--accent);
+  }
+
+  * {
+    box-sizing: border-box;
+    @apply border-border;
+  }
+
+  html, body, #root {
+    height: 100%;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    min-width: 320px;
+    @apply bg-background text-foreground;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+}

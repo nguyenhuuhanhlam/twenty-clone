@@ -8,7 +8,7 @@ function toUserRecord(doc: QueryDocumentSnapshot): UserRecord {
 
   return {
     id: doc.id,
-    displayName: String(data.display_name ?? data.displayName ?? 'Chưa có tên'),
+    displayName: String(data.display_name ?? data.displayName ?? 'Unnamed'),
     email: String(data.email ?? ''),
     role: data.role ? String(data.role) : undefined,
     authProvider: String(data.auth_provider ?? 'password'),

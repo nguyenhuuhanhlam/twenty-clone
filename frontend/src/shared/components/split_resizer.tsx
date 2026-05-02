@@ -16,7 +16,7 @@ export function SplitResizer({
       className="split-resizer"
       role="separator"
       aria-orientation="vertical"
-      aria-label="Đổi rộng panel"
+      aria-label="Resize panel"
       onPointerDown={(event) => {
         if (disabled) return;
         event.preventDefault();

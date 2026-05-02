@@ -13,9 +13,9 @@ export function getUserColor(user: UserRecord) {
 }
 
 export function formatDate(value?: Timestamp) {
-  if (!value) return 'Chưa có';
+  if (!value) return 'None';
 
-  return new Intl.DateTimeFormat('vi-VN', {
+  return new Intl.DateTimeFormat('en-US', {
     day: '2-digit',
     month: '2-digit',
     year: 'numeric',

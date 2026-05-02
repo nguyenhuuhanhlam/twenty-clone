@@ -13,7 +13,7 @@ export function LoginPage() {
     try {
       await signInWithGoogle();
     } catch {
-      setError('Không thể đăng nhập. Kiểm tra Firebase config.');
+      setError('Unable to sign in. Please check Firebase configuration.');
     } finally {
       setIsSigningIn(false);
     }
@@ -23,11 +23,11 @@ export function LoginPage() {
     <main className="login-page">
       <section className="login-panel">
         <div className="workspace-mark large">A</div>
-        <h1>People</h1>
-        <p>Xem users từ Firebase.</p>
+        <h1>Users</h1>
+        <p>View users from Firebase.</p>
         <button className="primary-button" type="button" onClick={handleLogin} disabled={isSigningIn}>
           <LogIn size={16} />
-          {isSigningIn ? 'Đang đăng nhập' : 'Đăng nhập Google'}
+          {isSigningIn ? 'Signing in...' : 'Sign in with Google'}
         </button>
         {error ? <p className="error-text">{error}</p> : null}
       </section>

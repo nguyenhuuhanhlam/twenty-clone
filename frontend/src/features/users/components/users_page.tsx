@@ -10,7 +10,7 @@ import { UsersTable } from './users_table';
 const MIN_PANEL_WIDTH = 320;
 const MAX_PANEL_WIDTH = 620;
 
-export function PeoplePage() {
+export function UsersPage() {
   const { users, loading, error } = useUsers();
   const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
   const [panelWidth, setPanelWidth] = useState(390);
@@ -48,21 +48,21 @@ export function PeoplePage() {
         style={{ '--detail-width': `${panelWidth}px` } as React.CSSProperties}
       >
         <div className="records-pane">
-          <section className="view-toolbar" aria-label="Điều khiển bảng">
+          <section className="view-toolbar" aria-label="Table controls">
             <div className="view-tabs">
               <button className="view-tab active" type="button">
-                Tất cả · {users.length}
+                All · {users.length}
               </button>
             </div>
             <div className="table-tools">
               <Button variant="ghost" className="text-tool">
-                Lọc
+                Filter
               </Button>
               <button className="text-tool" type="button">
-                Sắp xếp
+                Sort
               </button>
               <button className="text-tool" type="button">
-                Tùy chọn
+                Options
               </button>
             </div>
           </section>

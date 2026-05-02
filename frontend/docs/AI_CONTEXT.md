@@ -1,30 +1,34 @@
 # AI Context
 
-App React + Vite + Firebase để hiển thị collection `users` dưới dạng màn hình People.
+Ứng dụng React + Vite + Firebase được thiết kế để xây dựng một khung ứng dụng (framework) tương tự như **Twenty CRM**, cụ thể là quản lý collection `users`.
 
-## Hiện có
+## Trạng thái hiện tại
 
-- Firebase Auth: Google login.
-- Firestore: realtime `users` qua `onSnapshot`.
-- UI tiếng Việt, dark mode.
-- Tailwind CSS v4 qua `@tailwindcss/vite`; CSS hiện tại nằm trong `src/shared/styles`.
-- Sidebar có collapse.
-- People table.
-- Detail panel dạng split, khe 8px, resize được.
+- **Ngôn ngữ UI**: Tiếng Anh (Đã chuẩn hóa).
+- **Kiến trúc**: Cấu trúc dựa trên module feature.
+- **Firebase Auth**: Tích hợp đăng nhập Google.
+- **Firestore**: Đồng bộ thời gian thực cho collection `users` qua `onSnapshot`.
+- **Styling**: Mặc định Dark mode, Tailwind CSS v4 qua `@tailwindcss/vite`, layout tùy chỉnh trong `src/shared/styles`.
+- **Layout**: 
+  - Sidebar có thể thu gọn (Collapsible).
+  - Bảng Users (Cấu trúc tương tự TanStack).
+  - Panel chi tiết có thể thay đổi kích thước (Split layout 8px, kéo thả được).
 
-## Đọc file nào trước
+## Các file cần đọc trước
 
-- Kiến trúc: `docs/architecture.md`
-- Schema Firebase: `docs/firebase_schema.md`
-- People feature: `src/features/people`
-- Shared UI: `src/shared`
+- **Kiến trúc**: `docs/architecture.md`
+- **Schema Firebase**: `docs/firebase_schema.md`
+- **Tính năng Users**: `src/features/users`
+- **Shared UI**: `src/shared`
 
-## Quy tắc
+## Quy tắc phát triển
 
-- Không thêm CRM module khác khi chưa được yêu cầu.
-- Không để query Firebase trong component UI.
-- Data access nằm trong `services`.
-- State realtime nằm trong `hooks`.
-- Component nhận props và render UI.
-- Khi thêm style mới, ưu tiên Tailwind utility cho UI nhỏ; layout lớn có thể giữ trong shared CSS.
-- Nếu đổi schema hoặc kiến trúc, cập nhật docs.
+- **Mục tiêu**: Duy trì cảm giác cao cấp và trải nghiệm người dùng (UX) tương tự như Twenty.com.
+- **Modules**: Không thêm các module CRM khác (Opportunities, Companies,...) trừ khi được yêu cầu rõ ràng.
+- **Phân tách trách nhiệm**:
+  - Không viết query Firebase bên trong component UI.
+  - Lớp truy cập dữ liệu nằm trong `services`.
+  - Quản lý state thời gian thực nằm trong `hooks`.
+  - Component UI nên thuần túy (pure) và tập trung vào hiển thị.
+- **Styling**: Ưu tiên Tailwind utility cho các UI nhỏ; dùng Shared CSS cho các ràng buộc layout cốt lõi.
+- **Tài liệu**: Luôn cập nhật docs nếu schema hoặc kiến trúc thay đổi.

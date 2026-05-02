@@ -14,7 +14,7 @@ type UsersTableProps = {
 
 export function UsersTable({ users, selectedUserId, loading, error, onSelectUser }: UsersTableProps) {
   if (loading) {
-    return <LoadingState label="Đang tải users" />;
+    return <LoadingState label="Loading users..." />;
   }
 
   if (error) {
@@ -22,7 +22,7 @@ export function UsersTable({ users, selectedUserId, loading, error, onSelectUser
   }
 
   if (users.length === 0) {
-    return <EmptyState title="Chưa có user" description="Thêm document vào collection users." />;
+    return <EmptyState title="No users found" description="Add documents to the 'users' collection in Firestore." />;
   }
 
   return (
@@ -32,14 +32,14 @@ export function UsersTable({ users, selectedUserId, loading, error, onSelectUser
           <thead>
             <tr>
               <th className="check-col">
-                <input type="checkbox" aria-label="Chọn tất cả" />
+                <input type="checkbox" aria-label="Select all" />
               </th>
-              <th>Tên</th>
+              <th>Name</th>
               <th>Email</th>
-              <th>Vai trò</th>
-              <th>Đăng nhập</th>
-              <th>Trạng thái</th>
-              <th>Tạo lúc</th>
+              <th>Role</th>
+              <th>Provider</th>
+              <th>Status</th>
+              <th>Created at</th>
             </tr>
           </thead>
           <tbody>
@@ -69,18 +69,18 @@ export function UsersTable({ users, selectedUserId, loading, error, onSelectUser
                     </span>
                     <div>
                       <div className="person-name">{user.displayName}</div>
-                      <div className="subtle">{user.isActive ? 'Đang hoạt động' : 'Đã tắt'}</div>
+                      <div className="subtle">{user.isActive ? 'Active' : 'Inactive'}</div>
                     </div>
                   </div>
                 </td>
-                <td>{user.email || 'Chưa có'}</td>
-                <td>{user.role || 'Chưa có'}</td>
+                <td>{user.email || 'None'}</td>
+                <td>{user.role || 'None'}</td>
                 <td>
                   <span className="company-badge">{user.authProvider}</span>
                 </td>
                 <td>
                   <span className={user.isActive ? 'status-badge active' : 'status-badge inactive'}>
-                    {user.isActive ? 'Bật' : 'Tắt'}
+                    {user.isActive ? 'On' : 'Off'}
                   </span>
                 </td>
                 <td>{formatDate(user.createdAt)}</td>

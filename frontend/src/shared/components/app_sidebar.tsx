@@ -42,7 +42,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
           <WorkspaceLogo>A</WorkspaceLogo>
           <WorkspaceMeta>
             <AppTitle>TwentyClone</AppTitle>
-            <AppSubTitle>Không gian</AppSubTitle>
+            <AppSubTitle>Workspace</AppSubTitle>
           </WorkspaceMeta>
         </div>
       </SidebarHeader>
@@ -52,9 +52,9 @@ export function AppSidebar({ user }: AppSidebarProps) {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton tooltip="Tìm kiếm">
+                <SidebarMenuButton tooltip="Search">
                   <Search className="shrink-0" />
-                  <span className="group-data-[collapsible=icon]:hidden">Tìm kiếm</span>
+                  <span className="group-data-[collapsible=icon]:hidden">Search</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -62,19 +62,27 @@ export function AppSidebar({ user }: AppSidebarProps) {
         </SidebarGroup>
 
         <SidebarGroup>
-          <SidebarGroupLabel className="group-data-[collapsible=icon]:hidden">Không gian</SidebarGroupLabel>
+          <SidebarGroupLabel className="group-data-[collapsible=icon]:hidden">Workspace</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton render={<a href="#home" />} tooltip="Nhà">
+                <SidebarMenuButton render={<a href="#home" />} tooltip="Home">
                   <Home className="shrink-0" />
-                  <span className="group-data-[collapsible=icon]:hidden">Nhà</span>
+                  <span className="group-data-[collapsible=icon]:hidden">Home</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
+          <SidebarGroupLabel className="group-data-[collapsible=icon]:hidden">Management</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton render={<a href="#people" />} isActive tooltip="Liên hệ">
+                <SidebarMenuButton render={<a href="#users" />} isActive tooltip="Users">
                   <Users className="shrink-0" />
-                  <span className="group-data-[collapsible=icon]:hidden">Liên hệ</span>
+                  <span className="group-data-[collapsible=icon]:hidden">Users</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -85,16 +93,16 @@ export function AppSidebar({ user }: AppSidebarProps) {
       <SidebarFooter>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton tooltip="Cài đặt">
+            <SidebarMenuButton tooltip="Settings">
               <Settings className="shrink-0" />
-              <span className="group-data-[collapsible=icon]:hidden">Cài đặt</span>
+              <span className="group-data-[collapsible=icon]:hidden">Settings</span>
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton
               className="h-12 w-full justify-start group-data-[collapsible=icon]:gap-0 group-data-[collapsible=icon]:justify-center"
               onClick={logout}
-              tooltip="Đăng xuất"
+              tooltip="Logout"
             >
               <UserAvatar>
                 {user.photoURL && (
@@ -114,7 +122,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
                 </div>
               </UserAvatar>
               <UserInfo>
-                <UserName>{user.displayName || 'Người dùng'}</UserName>
+                <UserName>{user.displayName || 'User'}</UserName>
                 <UserEmail>{user.email}</UserEmail>
               </UserInfo>
               <LogOut className="ml-auto shrink-0 group-data-[collapsible=icon]:hidden" size={14} />

@@ -1,10 +1,10 @@
-import { PeoplePage } from '../features/people/components/people_page';
+import { UsersPage } from '../features/users/components/users_page';
 
 export const routes = [
   {
-    id: 'people',
-    label: 'Liên hệ',
+    id: 'users',
+    label: 'Users',
     path: '/',
-    element: <PeoplePage />,
+    element: <UsersPage />,
   },
 ];

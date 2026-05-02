@@ -22,7 +22,7 @@ export function useUsers(): UsersState {
         setState({
           users: [],
           loading: false,
-          error: 'Không đọc được users. Kiểm tra Firestore rules hoặc config.',
+          error: 'Failed to fetch users. Please check Firestore rules or configuration.',
         }),
     );
   }, []);

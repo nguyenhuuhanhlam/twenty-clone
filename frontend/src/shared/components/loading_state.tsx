@@ -2,7 +2,7 @@ type LoadingStateProps = {
   label?: string;
 };
 
-export function LoadingState({ label = 'Đang tải' }: LoadingStateProps) {
+export function LoadingState({ label = 'Loading...' }: LoadingStateProps) {
   return (
     <div className="state-panel">
       <div className="spinner" />

@@ -7,7 +7,7 @@ Project dùng feature-based folders.
 - `src/app`: composition cấp app, shell, route registry.
 - `src/config`: cấu hình hạ tầng như Firebase.
 - `src/features/auth`: auth service, hook, màn hình login.
-- `src/features/people`: users service, hook, table, detail panel.
+- `src/features/users`: users service, hook, table, detail panel.
 - `src/shared/components`: UI dùng lại.
 - `src/components/ui`: Các component từ **shadcn/ui**.
 - `src/shared/styles`: Tailwind entry, theme và layout CSS.

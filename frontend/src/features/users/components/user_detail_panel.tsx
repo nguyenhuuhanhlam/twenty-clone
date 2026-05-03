@@ -1,8 +1,10 @@
+import * as React from 'react';
 import { MoreHorizontal, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import type { UserRecord } from '../types';
 import { formatDate, getInitial, getUserColor } from '../utils';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsContent } from '@/components/ui/tabs';
+import { SmartTabsList } from '@/shared/components/smart_tabs';
 
 type UserDetailPanelProps = {
 	user: UserRecord | null;
@@ -20,10 +22,12 @@ const ALL_TABS = [
 ];
 
 export function UserDetailPanel({ user, onClose }: UserDetailPanelProps) {
+	const [activeTab, setActiveTab] = React.useState('overview');
+
 	return (
 		<aside className="detail-panel" aria-hidden={!user} aria-label="Chi tiết bản ghi">
 			{user ? (
-				<Tabs defaultValue="overview" className="flex h-full flex-col min-w-0">
+				<Tabs value={activeTab} onValueChange={setActiveTab} className="flex h-full flex-col min-w-0">
 					<div className="panel-header">
 						<Button variant="ghost" size="icon-xs" aria-label="Đóng panel" onClick={onClose}>
 							<X />
@@ -40,16 +44,11 @@ export function UserDetailPanel({ user, onClose }: UserDetailPanelProps) {
 						</Button>
 					</div>
 
-					<TabsList
-						variant="line"
-						className="flex w-full justify-start overflow-x-auto overflow-y-hidden whitespace-nowrap [&::-webkit-scrollbar]:hidden gap-2 px-4 border-b border-border-soft"
-					>
-						{ALL_TABS.map((tab) => (
-							<TabsTrigger key={tab.id} value={tab.id} className="record-tab">
-								{tab.label}
-							</TabsTrigger>
-						))}
-					</TabsList>
+					<SmartTabsList 
+						tabs={ALL_TABS} 
+						activeTab={activeTab} 
+						onTabChange={setActiveTab} 
+					/>
 
 					<div className="flex-1 overflow-hidden">
 						<TabsContent value="overview" className="h-full mt-0">
@@ -110,6 +109,7 @@ export function UserDetailPanel({ user, onClose }: UserDetailPanelProps) {
 						))}
 					</div>
 				</Tabs>
+
 			) : (
 				<div className="empty-panel">
 					<p>Select a record to view details</p>

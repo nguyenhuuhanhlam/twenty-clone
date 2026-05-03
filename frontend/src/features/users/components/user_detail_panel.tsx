@@ -1,11 +1,7 @@
 import { MoreHorizontal, X } from 'lucide-react';
-import styled from '@emotion/styled';
+import { Button } from '@/components/ui/button';
 import type { UserRecord } from '../types';
 import { formatDate, getInitial, getUserColor } from '../utils';
-import { useResizeDetector } from 'react-resize-detector';
-
-
-
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 type UserDetailPanelProps = {
@@ -24,33 +20,29 @@ const ALL_TABS = [
 ];
 
 export function UserDetailPanel({ user, onClose }: UserDetailPanelProps) {
-	const { ref, width } = useResizeDetector();
-
 	return (
-
-		<aside ref={ref} className="detail-panel" aria-hidden={!user} aria-label="Chi tiết bản ghi">
+		<aside className="detail-panel" aria-hidden={!user} aria-label="Chi tiết bản ghi">
 			{user ? (
 				<Tabs defaultValue="overview" className="flex h-full flex-col min-w-0">
 					<div className="panel-header">
-						<button className="tool-button" type="button" aria-label="Đóng panel" onClick={onClose}>
-							<X size={16} />
-						</button>
+						<Button variant="ghost" size="icon-xs" aria-label="Đóng panel" onClick={onClose}>
+							<X />
+						</Button>
 						<div className="panel-title">
-							<span className="avatar tiny" style={{ background: getUserColor(user) }}>
+							<span className={`avatar tiny ${user.isActive ? 'active' : 'inactive'}`}>
 								{getInitial(user.displayName)}
 							</span>
 							<strong>{user.displayName}</strong>
 							<span>Created {formatDate(user.createdAt)}</span>
 						</div>
-						<button className="tool-button" type="button" aria-label="More actions">
-							<MoreHorizontal size={16} />
-						</button>
+						<Button variant="ghost" size="icon-xs" aria-label="More actions">
+							<MoreHorizontal />
+						</Button>
 					</div>
 
 					<TabsList
 						variant="line"
-						className="w-max inline-flex"
-					// className="flex w-full justify-start overflow-x-auto overflow-y-hidden whitespace-nowrap scrollbar-hide [&>*]:flex-none gap-6 px-4 border-b border-border-soft"
+						className="flex w-full justify-start overflow-x-auto overflow-y-hidden whitespace-nowrap [&::-webkit-scrollbar]:hidden gap-2 px-4 border-b border-border-soft"
 					>
 						{ALL_TABS.map((tab) => (
 							<TabsTrigger key={tab.id} value={tab.id} className="record-tab">

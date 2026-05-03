@@ -17,6 +17,7 @@
 ## Các file cần đọc trước
 
 - **Kiến trúc**: `docs/architecture.md`
+- **Tiêu chuẩn Module**: `docs/module_standard.md`
 - **Schema Firebase**: `docs/firebase_schema.md`
 - **Tính năng Users**: `src/features/users`
 - **Shared UI**: `src/shared`

@@ -1,5 +1,6 @@
+import { useEffect, useState } from 'react';
 import type { User } from 'firebase/auth';
-import { Home, Settings, Users, LogOut, Search } from 'lucide-react';
+import { Home, Settings, Users, LogOut, Search, Smile } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { logout } from '../../features/auth/services/auth_service';
 import {
@@ -35,6 +36,17 @@ function getInitial(value?: string | null) {
 }
 
 export function AppSidebar({ user }: AppSidebarProps) {
+  const [currentHash, setCurrentHash] = useState(window.location.hash || '#home');
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentHash(window.location.hash || '#home');
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
     <Sidebar collapsible="icon">
       <SidebarHeader className="p-4 group-data-[collapsible=icon]:px-0">
@@ -66,9 +78,23 @@ export function AppSidebar({ user }: AppSidebarProps) {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton render={<a href="#home" />} tooltip="Home">
+                <SidebarMenuButton 
+                  render={<a href="#home" />} 
+                  isActive={currentHash === '#home'} 
+                  tooltip="Home"
+                >
                   <Home className="shrink-0" />
                   <span className="group-data-[collapsible=icon]:hidden">Home</span>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton 
+                  render={<a href="#hello-content" />} 
+                  isActive={currentHash === '#hello-content'} 
+                  tooltip="Hello Content"
+                >
+                  <Smile className="shrink-0" />
+                  <span className="group-data-[collapsible=icon]:hidden">Hello Content</span>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
@@ -80,7 +106,11 @@ export function AppSidebar({ user }: AppSidebarProps) {
           <SidebarGroupContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <SidebarMenuButton render={<a href="#users" />} isActive tooltip="Users">
+                <SidebarMenuButton 
+                  render={<a href="#users" />} 
+                  isActive={currentHash === '#users'} 
+                  tooltip="Users"
+                >
                   <Users className="shrink-0" />
                   <span className="group-data-[collapsible=icon]:hidden">Users</span>
                 </SidebarMenuButton>

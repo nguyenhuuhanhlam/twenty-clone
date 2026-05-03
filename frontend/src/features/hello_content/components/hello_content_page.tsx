@@ -1,29 +1,30 @@
-import { useMemo, useRef, useState } from 'react';
-import { Download, Plus } from 'lucide-react';
+import React, { useMemo, useRef, useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { SplitResizer } from '../../../shared/components/split_resizer';
+import { Smile, Plus, Download } from 'lucide-react';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Topbar } from '../../../shared/components/topbar';
-import { useUsers } from '../hooks/use_users';
-import type { UserRecord } from '../types';
-import { UserDetailPanel } from './user_detail_panel';
-import { UsersTable } from './users_table';
+import { SplitResizer } from '../../../shared/components/split_resizer';
+import { useHelloContent } from '../hooks/use_hello_content';
+import type { HelloContent } from '../types';
+import { HelloContentTable } from './hello_content_table';
+import { HelloContentDetailPanel } from './hello_content_detail_panel';
 
 const MIN_PANEL_WIDTH = 320;
 const MAX_PANEL_WIDTH = 620;
 
-export function UsersPage({ group, title }: { group: string; title: string }) {
-  const { users, loading, error } = useUsers();
-  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+export function HelloContentPage({ group, title }: { group: string; title: string }) {
+  const { items, loading } = useHelloContent();
+  const [selectedId, setSelectedId] = useState<string | null>(null);
   const [panelWidth, setPanelWidth] = useState(390);
   const [isResizing, setIsResizing] = useState(false);
   const layoutRef = useRef<HTMLDivElement>(null);
 
-  const selectedUser = useMemo<UserRecord | null>(
-    () => users.find((user) => user.id === selectedUserId) ?? null,
-    [selectedUserId, users],
+  const selectedItem = useMemo<HelloContent | null>(
+    () => items.find((item) => item.id === selectedId) ?? null,
+    [selectedId, items],
   );
 
-  const isPanelOpen = Boolean(selectedUser);
+  const isPanelOpen = Boolean(selectedItem);
 
   function resizePanel(clientX: number) {
     const layoutRect = layoutRef.current?.getBoundingClientRect();
@@ -39,6 +40,7 @@ export function UsersPage({ group, title }: { group: string; title: string }) {
       <Topbar 
         breadcrumb={group} 
         title={title} 
+        icon={<Smile size={16} className="text-blue-500" />}
         actions={
           <>
             <Button variant="outline" size="xs">
@@ -52,6 +54,7 @@ export function UsersPage({ group, title }: { group: string; title: string }) {
           </>
         }
       />
+
       <div
         ref={layoutRef}
         className={[
@@ -67,7 +70,7 @@ export function UsersPage({ group, title }: { group: string; title: string }) {
           <section className="view-toolbar" aria-label="Table controls">
             <div className="view-tabs">
               <button className="view-tab active" type="button">
-                All · {users.length}
+                All · {items.length}
               </button>
             </div>
             <div className="table-tools">
@@ -83,12 +86,11 @@ export function UsersPage({ group, title }: { group: string; title: string }) {
             </div>
           </section>
 
-          <UsersTable
-            error={error}
+          <HelloContentTable
+            items={items}
             loading={loading}
-            selectedUserId={selectedUserId}
-            users={users}
-            onSelectUser={setSelectedUserId}
+            selectedId={selectedId}
+            onSelectItem={setSelectedId}
           />
         </div>
 
@@ -104,7 +106,7 @@ export function UsersPage({ group, title }: { group: string; title: string }) {
           onResizeEnd={() => setIsResizing(false)}
         />
 
-        <UserDetailPanel user={selectedUser} onClose={() => setSelectedUserId(null)} />
+        <HelloContentDetailPanel item={selectedItem} onClose={() => setSelectedId(null)} />
       </div>
     </div>
   );

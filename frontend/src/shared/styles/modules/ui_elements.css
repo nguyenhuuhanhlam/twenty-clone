@@ -1,0 +1,129 @@
+/* Avatar styles */
+.avatar.small,
+.avatar-img {
+  border-radius: 50%;
+  height: 28px;
+  object-fit: cover;
+  width: 28px;
+}
+
+.avatar.tiny,
+.avatar-img.tiny {
+  border-radius: 4px;
+  font-size: 11px;
+  height: 20px;
+  width: 20px;
+}
+
+.avatar-img.square {
+  border-radius: 5px;
+  height: 20px;
+  width: 20px;
+}
+
+.workspace-mark,
+.avatar {
+  align-items: center;
+  background: var(--surface-soft);
+  border-radius: 4px;
+  color: var(--text);
+  display: inline-flex;
+  font-weight: 650;
+  justify-content: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.workspace-mark {
+  background: #0e7490;
+  color: #e8fbff;
+  font-size: 12px;
+  height: 18px;
+  width: 18px;
+}
+
+.avatar.active {
+  background: #065f46;
+  color: #34d399;
+  border: 1px solid #059669;
+}
+
+.avatar.inactive {
+  background: #7f1d1d;
+  color: #f87171;
+  border: 1px solid #991b1b;
+}
+
+/* Button variants */
+.ghost-button,
+.primary-button {
+  align-items: center;
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  display: inline-flex;
+  font-size: 12px;
+  gap: 8px;
+  justify-content: center;
+  min-height: 24px;
+  padding: 0 8px;
+  transition: all 150ms ease;
+}
+
+.primary-button {
+  background: #315de8;
+  border-color: #315de8;
+  color: #fff;
+}
+
+.primary-button:hover {
+  background: #6d28d9;
+  border-color: #6d28d9;
+}
+
+.ghost-button:hover {
+  background: var(--surface-soft);
+}
+
+.compact {
+  min-height: 28px;
+}
+
+/* Common state panels (Loading, Empty, Error) */
+.state-panel {
+  align-items: center;
+  color: var(--muted);
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  min-height: 100%;
+  padding: 24px;
+  text-align: center;
+}
+
+.state-panel h2 {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.error-state p,
+.error-text {
+  color: var(--danger);
+}
+
+.spinner {
+  animation: spin 800ms linear infinite;
+  border: 2px solid var(--border);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  height: 24px;
+  justify-self: center;
+  width: 24px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

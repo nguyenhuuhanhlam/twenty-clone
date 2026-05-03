@@ -1,0 +1,29 @@
+.login-page {
+  align-items: center;
+  background: var(--bg);
+  display: grid;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.login-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: grid;
+  gap: 14px;
+  justify-self: center;
+  max-width: 360px;
+  padding: 24px;
+  width: 100%;
+}
+
+.login-panel h1 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.login-panel p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}

@@ -17,6 +17,15 @@ Dự án đã tích hợp **shadcn/ui** kết hợp với **Tailwind CSS v4** đ
     - Luôn ưu tiên dùng biến CSS thay vì mã màu hex cứng trong component.
     - Hỗ trợ Dark Mode mặc định.
 
+### 3. Tiêu chuẩn UI Siêu gọn (Ultra-compact)
+Để tối ưu không gian cho các công cụ CRM/Management:
+- **Chiều cao dòng bảng (Table Row)**: Cố định 26px.
+- **Chiều cao Topbar**: Cố định 48px.
+- **Kích thước Button**: Ưu tiên dùng `size="xs"` (cao 24px) và `size="icon-xs"`.
+- **Checkbox**: Sử dụng kích thước `size-3.5` (14px).
+- **Màu sắc hành động**: Các nút chính (`primary`) có hiệu ứng hover màu Tím nhẹ (`#6d28d9`).
+- **Status-based Avatars**: Màu nền của avatar/icon trong bảng phải phản ánh trạng thái (`active`: Emerald/Green, `inactive`: Red). Nội dung bên trong (chữ cái đầu) phải được căn giữa tuyệt đối bằng Flexbox.
+
 ### 3. Hệ thống Sidebar (AppSidebar)
 - **File**: `src/shared/components/app_sidebar.tsx`
 - **Tính năng**:
@@ -43,4 +52,5 @@ Dự án đã tích hợp **shadcn/ui** kết hợp với **Tailwind CSS v4** đ
     - Ưu tiên dùng **Tailwind v4** cho các style tĩnh, tiện ích nhanh.
     - Dùng **Emotion Styled** cho các component phức tạp, có nhiều logic UI hoặc cần tính tái sử dụng cao trong feature.
 4. Đảm bảo mọi thành phần tương tác đều có `Tooltip` khi ở trong không gian hẹp (như Sidebar thu nhỏ).
-5. Luôn sử dụng Design Tokens (`var(--bg)`, `var(--text)`, ...) dù dùng Tailwind hay Emotion.
+6. **Quản lý CSS**: Hệ thống layout được chia nhỏ trong `src/shared/styles/modules/` theo chức năng. Entry point duy nhất là `layout.css`.
+7. **Trang nội dung**: Phải sử dụng lớp `.content` bọc ngoài cùng. Lớp này sử dụng `flex: 1` và `min-height: 0` để đảm bảo hiển thị full-screen và xử lý scroll đúng cách bên trong các component con.

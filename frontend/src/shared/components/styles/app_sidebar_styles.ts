@@ -97,5 +97,5 @@ export const UserEmail = styled.span`
   white-space: nowrap;
   text-align: left;
   font-size: 0.75rem;
-  color: var(--muted);
+  color: #737373;
 `;

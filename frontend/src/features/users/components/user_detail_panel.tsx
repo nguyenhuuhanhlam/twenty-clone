@@ -37,7 +37,6 @@ export function UserDetailPanel({ user, onClose }: UserDetailPanelProps) {
 								{getInitial(user.displayName)}
 							</span>
 							<strong>{user.displayName}</strong>
-							<span>Created {formatDate(user.createdAt)}</span>
 						</div>
 						<Button variant="ghost" size="icon-xs" aria-label="More actions">
 							<MoreHorizontal />

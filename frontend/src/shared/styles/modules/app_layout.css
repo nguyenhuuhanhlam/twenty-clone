@@ -28,7 +28,7 @@
 
 .records-pane {
   display: grid;
-  grid-template-rows: 40px minmax(0, 1fr);
+  grid-template-rows: var(--toolbar-height) minmax(0, 1fr);
   min-width: 0;
   overflow: hidden;
 }

@@ -6,9 +6,9 @@ import { Topbar } from '../../../shared/components/topbar';
 export function HomePage({ group, title }: { group: string; title: string }) {
   return (
     <div className="content bg-background">
-      <Topbar 
-        breadcrumb={group} 
-        title={title} 
+      <Topbar
+        breadcrumb={group}
+        title={title}
       />
 
       <main className="flex-1 flex flex-col items-center justify-center p-8 text-center">
@@ -16,7 +16,7 @@ export function HomePage({ group, title }: { group: string; title: string }) {
           <div className="inline-flex items-center justify-center size-16 rounded-2xl bg-primary/10 text-primary mb-2">
             <Smile size={32} />
           </div>
-          <h2 className="text-3xl font-bold tracking-tight">Welcome to TwentyClone</h2>
+          <h4 className="text-xl font-bold tracking-tight">Welcome to TwentyClone</h4>
           <p className="text-neutral-500 text-lg">
             Your standardized workspace for content management and user operations.
             Start by exploring the modules in the sidebar.
